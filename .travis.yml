@@ -7,6 +7,11 @@ install:
 
 script:
   - docker images
+  - git clone https://github.com/chrusty/protoc-gen-jsonschema
+  # - docker run -v $(pwd)/protoc-gen-jsonschema:/source phlax/protobuf2dev bash -c "make build && make install && make samples"
+  - docker run -v $(pwd):/source phlax/protobuf2dev bazel test //mypkg:myrules_test
+  - docker run -v $(pwd):/source phlax/protobuf2dev bazel build //mypkg:mytarget
+  - sudo ls bazel-out
 
 before_deploy:
   - echo $DOCKER_ACCESS_TOKEN | docker login -u phlax --password-stdin
