@@ -129,7 +129,7 @@ proto_library(
     ],
 )
 
-proto_library(
+python_proto_library(
     name = "v3_protos",
     visibility = ["//visibility:public"],
     deps = [
