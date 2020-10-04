@@ -1,22 +1,22 @@
-def _default_mypkg_api_impl(ctx):
+def _default_envoy_api_api_impl(ctx):
     ctx.file("WORKSPACE", "")
     api_dirs = [
         "BUILD",
         "bazel",
-        "mypkg",
+        "envoy_api",
     ]
-    print("MYPKG API BINDING IMPL")
+    print("ENVOY_API API BINDING IMPL")
     for d in api_dirs:
-        ctx.symlink(ctx.path(ctx.attr.mypkg_root).dirname.get_child(ctx.attr.reldir).get_child(d), d)
+        ctx.symlink(ctx.path(ctx.attr.envoy_api_root).dirname.get_child(ctx.attr.reldir).get_child(d), d)
 
-_default_mypkg_api = repository_rule(
-    implementation = _default_mypkg_api_impl,
+_default_envoy_api_api = repository_rule(
+    implementation = _default_envoy_api_api_impl,
     attrs = {
-        "mypkg_root": attr.label(default = "@protobuf2dev//:BUILD"),
+        "envoy_api_root": attr.label(default = "@protobuf2dev//:BUILD"),
         "reldir": attr.string(),
     },
 )
 
-def mypkg_api_binding():
-    if "mypkg" not in native.existing_rules().keys():
-        _default_mypkg_api(name="mypkg", reldir="mypkg")
+def envoy_api_api_binding():
+    if "envoy_api" not in native.existing_rules().keys():
+        _default_envoy_api_api(name="envoy_api", reldir="envoy_api")

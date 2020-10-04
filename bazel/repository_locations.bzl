@@ -586,8 +586,8 @@ DEPENDENCY_REPOSITORIES_SPEC = dict(
         project_desc = "Bazel rules for the Python language",
         project_url = "https://github.com/bazelbuild/rules_python",
         # TODO(htuch): revert back to a point releases when pip3_import appears.
-        version = "a0fbf98d4e3a232144df4d0d80b577c7a693b570",
-        sha256 = "76a8fd4e7eca2a3590f816958faa0d83c9b2ce9c32634c5c375bcccf161d3bb5",
+        version = "0.0.3", #"a0fbf98d4e3a232144df4d0d80b577c7a693b570",
+        sha256 = "e46612e9bb0dae8745de6a0643be69e8665a03f63163ac6610c210e80d14c3e4",
         strip_prefix = "rules_python-{version}",
         urls = ["https://github.com/bazelbuild/rules_python/archive/{version}.tar.gz"],
         last_updated = "2020-04-09",
