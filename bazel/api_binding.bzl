@@ -22,8 +22,5 @@ _default_envoy_api = repository_rule(
 )
 
 def envoy_api_binding():
-    if "envoy" not in native.existing_rules().keys():
-        print('adding envoy package...')
-        print(native.existing_rules())
-        _default_envoy_api(name="envoy", reldir="envoy_api/envoy")
-        print(native.existing_rules())
+    if "envoy_api" not in native.existing_rules().keys():
+        _default_envoy_api(name="envoy_api", reldir="envoy_api")
