@@ -1,6 +1,6 @@
 load(":myrules.bzl", "myrule")
 load(":myrules_test.bzl", "myrules_test_suite")
-load("@rules_proto//proto:defs.bzl", "proto_library"
+load("@rules_proto//proto:defs.bzl", "proto_library")
 load("@build_stack_rules_proto//python:python_proto_library.bzl", "python_proto_library")
 
 # Production use of the rule.
