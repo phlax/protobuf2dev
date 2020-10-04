@@ -1,5 +1,9 @@
 workspace(name = "protobuf2dev")
 
+load("//bazel:api_binding.bzl", "envoy_api_binding")
+
+envoy_api_binding()
+
 # load("@bazel_skylib//:workspace.bzl", "bazel_skylib_workspace")
 
 # bazel_skylib_workspace()
