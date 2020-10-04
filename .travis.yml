@@ -10,7 +10,7 @@ script:
   - git clone https://github.com/chrusty/protoc-gen-jsonschema
   # - docker run -v $(pwd)/protoc-gen-jsonschema:/source phlax/protobuf2dev bash -c "make build && make install && make samples"
   # - docker run -v $(pwd):/source phlax/protobuf2dev bazel test //envoy_api:myrules_test
-  - docker run -v $(pwd):/source phlax/protobuf2dev bazel build //envoy_api:thing_proto
+  - docker run -v $(pwd):/source phlax/protobuf2dev bazel build //envoy_api:v2_protos
   - sudo ls bazel-out
 
 before_deploy:
