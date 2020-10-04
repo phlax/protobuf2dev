@@ -20,3 +20,6 @@ _default_envoy_api_api = repository_rule(
 def envoy_api_api_binding():
     if "envoy_api" not in native.existing_rules().keys():
         _default_envoy_api_api(name="envoy_api", reldir="envoy_api")
+
+    if "envoy" not in native.existing_rules().keys():
+        _default_envoy_api_api(name="envoy", reldir="envoy_api/envoy")
