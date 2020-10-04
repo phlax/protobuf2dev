@@ -1,4 +1,4 @@
-def _default_envoy_api_api_impl(ctx):
+def _default_envoy_api_impl(ctx):
     ctx.file("WORKSPACE", "")
     api_dirs = [
         "BUILD",
@@ -9,18 +9,18 @@ def _default_envoy_api_api_impl(ctx):
     for d in api_dirs:
         ctx.symlink(ctx.path(ctx.attr.envoy_api_root).dirname.get_child(ctx.attr.reldir).get_child(d), d)
 
-_default_envoy_api_api = repository_rule(
-    implementation = _default_envoy_api_api_impl,
+_default_envoy_api = repository_rule(
+    implementation = _default_envoy_api_impl,
     attrs = {
         "envoy_api_root": attr.label(default = "@protobuf2dev//:BUILD"),
         "reldir": attr.string(),
     },
 )
 
-def envoy_api_api_binding():
+def envoy_api_binding():
     if "envoy_api" not in native.existing_rules().keys():
-        _default_envoy_api_api(name="envoy_api", reldir="envoy_api")
+        _default_envoy_api(name="envoy_api", reldir="envoy_api")
 
     print(native.existing_rules())
     if "envoy" not in native.existing_rules().keys():
-        _default_envoy_api_api(name="envoy", reldir="envoy_api/envoy")
+        _default_envoy_api(name="envoy", reldir="envoy_api/envoy")
