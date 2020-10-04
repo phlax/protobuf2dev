@@ -281,15 +281,6 @@ python_proto_library(
     ],
 )
 
-proto_library(
-    name = "all_protos",
-    visibility = ["//visibility:public"],
-    deps = [
-        ":v2_protos",
-        ":v3_protos",
-    ],
-)
-
 python_proto_library(
     name = "python_thing_proto",
     deps = [":thing_proto"],
